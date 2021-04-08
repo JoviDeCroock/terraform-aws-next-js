@@ -151,6 +151,7 @@ interface BuildProps {
 
 async function buildCommand({
   skipDownload = false,
+  installCommand,
   logLevel,
   deleteBuildCache = true,
   cwd,
@@ -187,7 +188,7 @@ async function buildCommand({
       files,
       workPath,
       entrypoint,
-      config: { sharedLambdas: true },
+      config: { sharedLambdas: true, installCommand },
       meta: {
         isDev: false,
         // @ts-ignore
